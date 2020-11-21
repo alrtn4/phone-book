@@ -1,0 +1,81 @@
+.contact-header {
+    height: 50vh;
+}
+
+.contact-header-blue {
+    background-color: #2194FF;
+}
+
+.contact-header-carbon {
+    background-color: #3D52F2;
+}
+
+.contact-header-orange {
+    background-color: #D76518;
+}
+
+.contact-header-yaghuti {
+    background-color: #3DD2F2;
+}
+
+.contact-header-green {
+    background-color: #01FF37;
+}
+
+.contact-header-sabz {
+    background-color: #15A95E;
+}
+
+.contact-header-violet {
+    background-color: #AC13A7;
+}
+
+.contact-header h1 {
+    color: white;
+    font-weight: lighter;
+    padding-top: 35vh;
+    padding-left: 5vw;
+}
+
+#contact-form #phone , #contact-form #mail{
+    width: 40px;
+    height: 40px;
+}
+
+#contact-form hr {
+    width: 80%;
+    margin-left: 17%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#contact-form #mobile,
+#contact-form #home {
+    color: #888888;
+}
+
+#contact-add {
+    margin-bottom: 4rem;
+}
+
+#contact-add-box {
+    border: 1px solid #A1A1A1;
+    border-radius: 2rem;
+    box-shadow: 0 3px 5px #A1A1A1;
+}
+
+#contact-add-box img {
+    width: 30px;
+}
+
+#contact-add-box div {
+    font-size: 0.75rem;
+}
+
+.contact-footer {
+    border-top: 1px solid #E6E5E5;
+}
+
+#arrow {
+    width: 30px;
+}

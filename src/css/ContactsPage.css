@@ -1,0 +1,76 @@
+.contacts-header {
+    border-bottom: 2px solid #B7B7B7;
+    box-shadow: 1px 0 #707070;
+    z-index: 2;
+}
+
+.contacts-header h2 {
+    color: #707070;
+    font-weight: lighter;
+}
+
+.contacts-main {
+    margin-top: 9rem;
+}
+
+#search-box-form {
+    top: 8rem;
+    transition: top 0.3s;
+    z-index: 1;
+}
+
+#search-box {
+    border: 1px solid #B7B7B7;
+    border-radius: 2rem;
+    box-shadow: 0 0 0 1px #707070;
+}
+
+#search-box::placeholder {
+    color: #DAD7D7;
+}
+
+.contact .contact-row span {
+    color:black;
+}
+
+.contact a:hover {
+    text-decoration: none;
+}
+
+.contact hr {
+    margin-left: 3.5rem;
+}
+
+.icon {
+    width: 56px;
+}
+
+#contacts-add {
+    margin-bottom: 4rem;
+}
+
+#contacts-add-box {
+    border: 1px solid #A1A1A1;
+    border-radius: 2rem;
+    box-shadow: 0 3px 5px #A1A1A1;
+}
+
+#contacts-add-box img {
+    width: 37px;
+}
+
+#contacts-add-box div {
+    font-size: 0.75rem;
+}
+
+.contacts-footer {
+    border-top: 1px solid #E6E5E5;
+}
+
+#arrow {
+    width: 30px;
+}
+
+.custom-control , .custom-switch {
+    padding-left: 0;
+}

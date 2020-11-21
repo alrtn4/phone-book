@@ -1,0 +1,56 @@
+.custom-control , .custom-switch {
+    padding-left: 0 !important;
+}
+
+.login-header {
+    border-bottom: 2px solid #B7B7B7;
+    box-shadow: 1px 0 #707070;
+    align-items: center;
+}
+
+.login-header h2 {
+    color: #707070;
+    font-weight: lighter;
+}
+
+.login-header #cross {
+    width: 50px;
+}
+
+.login-header #checkmark {
+    width: 40px;
+    height: 29px;
+}
+
+.login-main {
+    margin-top: 5rem;
+}
+
+#login-form .form-group {
+    margin-bottom: 0;
+}
+
+#login-form input , .login-button{
+    border-radius: 2rem;
+}
+
+input {
+    outline: none;
+}
+
+#button a {
+    color: white;
+    text-decoration: none;
+}
+
+#button:hover {
+    cursor: pointer;
+}
+
+.login-footer {
+    border-top: 1px solid #E6E5E5;
+}
+
+#arrow {
+    width: 30px;
+}
