@@ -1,6 +1,5 @@
 import React from "react";
-import Switch from "react-bootstrap/esm/Switch";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, HashRouter, Switch} from "react-router-dom";
 import AddPage from "./components/addPage/AddPage";
 import ContactPage from "./components/contactPage/ContactPage";
 import ContactsPage from "./components/contactsPage/ContactsPage";
