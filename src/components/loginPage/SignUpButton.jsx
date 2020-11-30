@@ -58,7 +58,7 @@ const SignUpButton = () => {
     return (
         <div
             id={"button"}
-            className={`col-3 bg-secondary text-white border-rounded p-2 mt-3 text-center login-button ml-5`}
+            className={`col-4 bg-secondary text-white border-rounded p-2 mt-3 text-center login-button ml-5`}
             onClick={createAccount}
             >
             <div>Sign up</div>

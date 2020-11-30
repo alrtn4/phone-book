@@ -34,8 +34,17 @@
     border-radius: 2rem;
 }
 
+#loginInputIcon {
+    width: 40px;
+    height: 40px;
+}
+
 input {
     outline: none;
+}
+
+#button {
+    max-width: 150px;
 }
 
 #button a {

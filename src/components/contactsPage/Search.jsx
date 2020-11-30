@@ -1,28 +1,43 @@
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setContacts } from "./../../actions/setContacts";
 
 const Search = () => {
-    // const [getSearchBoxValue, setSearchBoxValue] = useState(null);
-
     const contacts = useSelector((state) => state.contactsReducer);
+
+    const contactsCopy = [...contacts];
+
+    const login = useSelector((state) => state.loginReducer);
+
+    const activeContacts = contactsCopy[login.activeAccount];
 
     const dispatch = useDispatch();
 
     const filterNames = (e) => {
-        for (let i = 0; i < contacts.length; i++) {
-            let a = contacts[i].name;
-            if (a.indexOf(e.target.value) > -1) {
-                contacts[i].display = "block";
-                console.log(
-                    a + " " + e.target.value + " " + contacts[i].display
-                );
+        for (let i = 0; i < activeContacts.length; i++) {
+            let a = activeContacts[i].name.toUpperCase();
+
+            if (a.indexOf(e.target.value.toUpperCase()) > -1) {
+                activeContacts[i].display = "block";
             } else {
-                contacts[i].display = "none";
+                activeContacts[i].display = "none";
             }
-            let contactsCopy = [...contacts];
-            dispatch(setContacts(contactsCopy));
         }
+
+        dispatch(setContacts(contactsCopy));
+    };
+
+    let pervScrollPos = window.pageYOffset;
+
+    const handleScroll = () => {
+        window.onscroll = function () {
+            let currentScrollPos = window.pageYOffset;
+            if (pervScrollPos > currentScrollPos) {
+                document.getElementById("search-box-form").style.top = "8rem";
+            } else {
+                document.getElementById("search-box-form").style.top = "3rem";
+            }
+            pervScrollPos = currentScrollPos;
+        };
     };
 
     return (
@@ -38,6 +53,8 @@ const Search = () => {
                 placeholder="Search through contacts"
                 onChange={filterNames}
             />
+
+            {window.addEventListener("scroll", () => handleScroll())}
         </form>
     );
 };

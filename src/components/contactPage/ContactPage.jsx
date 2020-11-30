@@ -88,11 +88,11 @@ const ContactPage = () => {
                     }}
                 >
                     <div
-                        id="contact-add"
+                        id="contact-edit"
                         className="d-flex justify-content-center fixed-bottom"
                     >
                         <div
-                            id="contact-add-box"
+                            id="contact-edit-box"
                             className="d-flex flex-column align-items-center col-3 bg-white"
                         >
                             <img className="mt-1" src={editIcon} alt="" />

@@ -9,7 +9,7 @@ const Input = (props) => {
     var index = login.activeAccount;
 
     const handleChange = (e) => {
-        if (props.id === "username"){
+        if (props.id === "username") {
             dispatch(
                 setLogin({
                     loginInput: {
@@ -21,7 +21,7 @@ const Input = (props) => {
                 })
             );
         }
-        if (props.id === "password"){
+        if (props.id === "password") {
             dispatch(
                 setLogin({
                     loginInput: {
@@ -36,13 +36,23 @@ const Input = (props) => {
     };
 
     return (
-        <input
-            id={props.id}
-            className="border border-dark m-3 p-2 w-100"
-            type={props.type}
-            placeholder={props.placeholder}
-            onChange={handleChange}
-        />
+        <div className="d-flex row">
+            <div className='d-flex col-1 justify-content-end'>
+                <img
+                    id="loginInputIcon"
+                    className="my-3"
+                    src={props.icon}
+                    alt=""
+                />
+            </div>
+            <input
+                id={props.id}
+                className="border border-dark my-3 p-2 col-10"
+                type={props.type}
+                placeholder={props.placeholder}
+                onChange={handleChange}
+            />
+        </div>
     );
 };
 

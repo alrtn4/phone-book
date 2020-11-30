@@ -53,6 +53,7 @@
     border: 1px solid #A1A1A1;
     border-radius: 2rem;
     box-shadow: 0 3px 5px #A1A1A1;
+    max-width: 150px;
 }
 
 #contacts-add-box img {
