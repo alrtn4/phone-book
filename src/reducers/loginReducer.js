@@ -11,7 +11,7 @@ export const loginReducer = (
             },
             {
                 username: "reza",
-                password: "1234",
+                password: "123",
             },
         ],
         activeAccount: -1,

@@ -1,68 +1,57 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { setLogin } from "../../actions/setLogin";
 import { setContacts } from "../../actions/setContacts";
-import { setNavigation } from "../../actions/setNavigation";
+import { useContext } from "react";
+import Context from '../../context/context';
+import globalContext from './../../context/context';
 
 const SignUpButton = () => {
-    const login = useSelector((state) => state.loginReducer);
+    // const dispatch = useDispatch();
+    
+    // const history = useHistory();
+    
+    // const login = useSelector((state) => state.loginReducer);
 
-    const contacts = useSelector((state) => state.contactsReducer);
+    // const contacts = useSelector((state) => state.contactsReducer);
 
-    const navigation = useSelector((state) => state.navigationReducer);
+    // const createAccount = () => {
+    //     var index = login.accounts.findIndex(
+    //         (account) => account.username === login.loginInput.username
+    //     );
 
-    const dispatch = useDispatch();
+    //     if (index === -1) {
+    //         contacts.push([]);
+    //         dispatch(setContacts(contacts));
 
-    var index = login.activeAccount;
+    //         login.accounts.push({
+    //             username: login.loginInput.username,
+    //             password: login.loginInput.password,
+    //         });
 
-    const createAccount = () => {
-        index = login.accounts.findIndex(
-            (account) => account.username === login.loginInput.username
-        );
+    //         let activeIndex = login.accounts.length - 1;
 
-        if (index === -1) {
-            contacts.push([]);
-            dispatch(setContacts(contacts));
+    //         dispatch(
+    //             setLogin({
+    //                 loginInput: { password: null, username: null },
+    //                 accounts: login.accounts,
+    //                 activeAccount: activeIndex,
+    //             })
+    //         );
 
-            login.accounts.push({
-                username: login.loginInput.username,
-                password: login.loginInput.password,
-            });
+    //         history.push('/contacts')
+    //     }
+    // };
 
-            let activeIndex = login.accounts.length - 1;
-
-            dispatch(
-                setLogin({
-                    loginInput: { password: null, username: null },
-                    accounts: login.accounts,
-                    activeAccount: activeIndex,
-                })
-            );
-            dispatch(
-                setNavigation({
-                    path: "/contacts",
-                    pageToPage: navigation.pageToPage,
-                })
-            );
-        }
-        if (index !== -1) {
-            dispatch(
-                setNavigation({
-                    path: "",
-                    pageToPage: navigation.pageToPage,
-                })
-            );
-        }
-    };
+    const context = useContext(globalContext)
 
     return (
         <div
             id={"button"}
             className={`col-4 bg-secondary text-white border-rounded p-2 mt-3 text-center login-button ml-5`}
-            onClick={createAccount}
+            onClick={context.createAccount}
             >
             <div>Sign up</div>
-            <Redirect to={navigation.path}></Redirect>
         </div>
     );
 };

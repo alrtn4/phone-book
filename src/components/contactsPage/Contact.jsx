@@ -8,7 +8,6 @@ import icon7 from "../../images/contact violet.png";
 import { useDispatch } from "react-redux";
 import { setContact } from "../../actions/setContact";
 import { Link } from "react-router-dom";
-import { setNavigation } from "./../../actions/setNavigation";
 
 const Contact = (props) => {
     const dispatch = useDispatch();
@@ -56,7 +55,6 @@ const Contact = (props) => {
                         index: index,
                     })
                 );
-                dispatch(setNavigation({ pageToPage: "contactstocontact" }));
             }}
         >
             <Link className="d-block contact-row" to="/contact">

@@ -57,6 +57,7 @@ const Main = () => {
                             id="name"
                             className="text"
                             type="text"
+                            placeholder='name'
                             onChange={handleChange}
                         />
                     </div>
@@ -77,6 +78,7 @@ const Main = () => {
                             id="number"
                             className="text"
                             type="text"
+                            placeholder='phone number'
                             onChange={handleChange}
                         />
                     </div>
@@ -97,6 +99,7 @@ const Main = () => {
                             id="email"
                             className="text"
                             type="text"
+                            placeholder='email'
                             onChange={handleChange}
                         />
                     </div>

@@ -1,76 +1,52 @@
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { setContacts } from "../../actions/setContacts";
-import { setNavigation } from "../../actions/setNavigation";
+import { useHistory } from "react-router-dom";
 import { setLogin } from "./../../actions/setLogin";
+import globalContext from './../../context/context';
 
 const SignInButton = () => {
+    const history = useHistory();
+
     const dispatch = useDispatch();
-    
-    const navigation = useSelector((state) => state.navigationReducer);
 
     const login = useSelector((state) => state.loginReducer);
 
-    const contacts = useSelector((state) => state.contactsReducer);
+    const handleSignInButton = () => {
+        var index = login.accounts.findIndex(
+            (account) =>
+                account.username === login.loginInput.username &&
+                account.password === login.loginInput.password
+        );
 
-    const refresh = () => {
-        const contactsCopy = [...contacts];
-        contactsCopy.forEach((item) => {
-            item.forEach((item2) => {
-                item2.display = "block";
-            });
-        });
-        dispatch(setContacts(contactsCopy));
-    };
+        let loginCopy = {...login}
 
-    const clicked = () => {
-        var index;
-        const findAccount = () => {
-            index = login.accounts.findIndex(
-                (account) =>
-                    account.username === login.loginInput.username &&
-                    account.password === login.loginInput.password
-            );
+        loginCopy.activeAccount = index;
 
-            dispatch(
-                setLogin({
-                    activeAccount: index,
-                    loginInput: login.loginInput,
-                    accounts: login.accounts,
-                })
-            );
-        };
+        dispatch(
+            setLogin(
+            //     {
+            //     activeAccount: index,
+            //     loginInput: login.loginInput,
+            //     accounts: login.accounts,
+            // }
+            loginCopy
+            )
+        );
 
-        findAccount();
-
-        if (index === -1) {
-            dispatch(
-                setNavigation({
-                    path: "",
-                    pageToPage: navigation.pageToPage,
-                })
-            );
-        }
         if (index !== -1) {
-            dispatch(
-                setNavigation({
-                    path: "/contacts",
-                    pageToPage: navigation.pageToPage,
-                })
-            );
+            history.push("/contacts");
         }
-
-        refresh();
     };
+
+    const context = useContext(globalContext)
 
     return (
         <div
             id={"button"}
             className={`col-4 bg-secondary text-white border-rounded p-2 mt-3 text-center login-button`}
-            onClick={clicked}
+            onClick={context.handleSignInButton}
         >
             <div>Sign in</div>
-            <Redirect to={navigation.path}></Redirect>
         </div>
     );
 };
