@@ -20,50 +20,30 @@ const EditPage = () => {
 
     const thisContact = contacts[login.activeAccount][contact.index];
 
-    const contactsFirstCopy = [...contacts];
+    const contactsCopy = [...contacts];
 
-    var contactObject = thisContact;
+    var thisContactCopy = {...thisContact};
 
     const handleChange = (e) => {
         if (e.target.id === "name") {
-            contactObject = {
-                name: e.target.value,
-                number: thisContact.number,
-                email: thisContact.email,
-                display: 'block'
-            };
+            thisContactCopy.name = e.target.value;
         }
         if (e.target.id === "mobile") {
-            contactObject = {
-                name: thisContact.name,
-                number: e.target.value,
-                email: thisContact.email,
-                display: 'block'
-            };
+            thisContactCopy.number = e.target.value;
         }
         if (e.target.id === "home") {
-            contactObject = {
-                name: thisContact.name,
-                number: thisContact.number,
-                email: e.target.value,
-                display: 'block'
-            };
+            thisContactCopy.email = e.target.value;
         }
-    };
-
-    const changeDismissed = () => {
-        dispatch(setContacts(contactsFirstCopy));
     };
 
     const changeApproved = () => {
-        var contactsCopy = [...contacts];
-        contactsCopy[login.activeAccount][contact.index] = contactObject;
+        contactsCopy[login.activeAccount][contact.index] = thisContactCopy;
         dispatch(setContacts(contactsCopy));
     };
 
     const Delete = () => {
-        contactsFirstCopy[login.activeAccount].splice(contact.index , 1);
-        dispatch(setContacts(contactsFirstCopy));
+        contactsCopy[login.activeAccount].splice(contact.index , 1);
+        dispatch(setContacts(contactsCopy));
     }
 
     return (
@@ -75,7 +55,6 @@ const EditPage = () => {
                             id="cross"
                             src={cross}
                             alt=""
-                            onClick={changeDismissed}
                         />
                     </Link>
                 </div>
@@ -187,7 +166,6 @@ const EditPage = () => {
                         id="arrow"
                         src={arrow}
                         alt=""
-                        onClick={changeDismissed}
                     />
                 </Link>
             </footer>

@@ -14,7 +14,7 @@ const Contact = (props) => {
 
     var color;
 
-    const Icon = () => {
+    const setIcon = () => {
         color = props.index % 7 + 1;
 
         switch (color) {
@@ -58,7 +58,7 @@ const Contact = (props) => {
             }}
         >
             <Link className="d-block contact-row" to="/contact">
-                <img className="icon" src={Icon()} alt="" />
+                <img className="icon" src={setIcon()} alt="" />
                 <span>{props.name}</span>
                 <hr />
             </Link>

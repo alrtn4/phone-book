@@ -30,13 +30,18 @@ const Search = () => {
 
     const handleScroll = () => {
         window.onscroll = function () {
-            let currentScrollPos = window.pageYOffset;
-            if (pervScrollPos > currentScrollPos) {
-                document.getElementById("search-box-form").style.top = "8rem";
-            } else {
-                document.getElementById("search-box-form").style.top = "3rem";
+            try {
+                let currentScrollPos = window.pageYOffset;
+                if (pervScrollPos > currentScrollPos) {
+                    document.getElementById("search-box-form").style.top = "8rem";
+                } else {
+                    document.getElementById("search-box-form").style.top = "3rem";
+                }
+                pervScrollPos = currentScrollPos;
             }
-            pervScrollPos = currentScrollPos;
+            catch {
+                
+            }
         };
     };
 

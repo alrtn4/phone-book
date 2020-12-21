@@ -23,7 +23,7 @@ const ContactsPage = () => {
 
     useEffect(() => {
         refresh();
-    }, [])
+    }, []);
 
     return (
         <div>

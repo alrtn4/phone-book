@@ -19,8 +19,6 @@ const ContextProvider = (props) => {
         loginCopy.loginInput.username = e.target.value;
 
         dispatch(setLogin(loginCopy));
-
-        // console.log(loginCopy, login);
     };
 
     const handlePasswordChange = (e) => {
@@ -29,23 +27,14 @@ const ContextProvider = (props) => {
         loginCopy.loginInput.password = e.target.value;
 
         dispatch(setLogin(loginCopy));
-
-        // console.log(loginCopy, login);
     };
 
-    const handleSignInButton = () => {
-        var index = login.accounts.findIndex((account) => {
-            console.log(
-                account.username,
-                account.password,
-                login.loginInput.username,
-                login.loginInput.password
-            );
-            return (
+    const handleSignIn = () => {
+        var index = login.accounts.findIndex(
+            (account) =>
                 account.username === login.loginInput.username &&
                 account.password === login.loginInput.password
-            );
-        });
+        );
 
         let loginCopy = { ...login };
 
@@ -55,6 +44,8 @@ const ContextProvider = (props) => {
 
         if (index !== -1) {
             history.push("/contacts");
+        } else {
+            alert("Username and/or password are not valid");
         }
     };
 
@@ -63,7 +54,9 @@ const ContextProvider = (props) => {
             (account) => account.username === login.loginInput.username
         );
 
-        if (index === -1) {
+        const { username, password } = login.loginInput;
+
+        if (index === -1 && username !== "" && password !== "") {
             contacts.push([]);
             dispatch(setContacts(contacts));
 
@@ -82,7 +75,11 @@ const ContextProvider = (props) => {
                 })
             );
 
+            alert("Your account is successfully created");
+
             history.push("/contacts");
+        } else {
+            alert("Username is taken befor or username and/or password are empty");
         }
     };
 
@@ -91,7 +88,7 @@ const ContextProvider = (props) => {
             value={{
                 handleUsernameChange,
                 handlePasswordChange,
-                handleSignInButton,
+                handleSignIn,
                 createAccount,
             }}
         >

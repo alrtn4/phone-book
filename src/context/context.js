@@ -3,8 +3,8 @@ import { createContext } from "react";
 const globalContext = createContext({
     handleUsernameChange : () => {},
     handlePasswordChange : () => {},
-    handleSignInButton : () => {},
-    createAccount : () => {}
+    handleSignIn : () => {},
+    createAccount : () => {},
 })
 
 export default globalContext;

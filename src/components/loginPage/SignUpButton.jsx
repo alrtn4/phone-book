@@ -1,48 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { setLogin } from "../../actions/setLogin";
-import { setContacts } from "../../actions/setContacts";
 import { useContext } from "react";
-import Context from '../../context/context';
 import globalContext from './../../context/context';
 
 const SignUpButton = () => {
-    // const dispatch = useDispatch();
-    
-    // const history = useHistory();
-    
-    // const login = useSelector((state) => state.loginReducer);
-
-    // const contacts = useSelector((state) => state.contactsReducer);
-
-    // const createAccount = () => {
-    //     var index = login.accounts.findIndex(
-    //         (account) => account.username === login.loginInput.username
-    //     );
-
-    //     if (index === -1) {
-    //         contacts.push([]);
-    //         dispatch(setContacts(contacts));
-
-    //         login.accounts.push({
-    //             username: login.loginInput.username,
-    //             password: login.loginInput.password,
-    //         });
-
-    //         let activeIndex = login.accounts.length - 1;
-
-    //         dispatch(
-    //             setLogin({
-    //                 loginInput: { password: null, username: null },
-    //                 accounts: login.accounts,
-    //                 activeAccount: activeIndex,
-    //             })
-    //         );
-
-    //         history.push('/contacts')
-    //     }
-    // };
-
     const context = useContext(globalContext)
 
     return (
